@@ -1,315 +1,302 @@
 <!DOCTYPE html>
 <html lang="zh-Hant">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@1,400&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="icon" href="favicon.png?v=2" type="image/png" />
-    <title>Serendipity - a storybook for Eric</title>
-    <style>
-      @keyframes float {
-        0% {
-          transform: translateY(0) scale(1);
-          opacity: 1;
-        }
-        100% {
-          transform: translateY(-100px) scale(1.5);
-          opacity: 0;
-        }
-      }
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link
+href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@1,400&display=swap"
+rel="stylesheet"
+/>
+<link rel="icon" href="favicon.png" type="image/png" />
+    
+    <title>A storybook for Eric</title>
+<style>
+@keyframes float {
+0% {
+transform: translateY(0) scale(1);
+opacity: 1;
+}
+100% {
+transform: translateY(-100px) scale(1.5);
+opacity: 0;
+}
+}
 
-      .cover-image {
-        width: 60%;
-        max-width: 300px;
-        height: auto;
-        margin: 1.5rem 0;
-        object-fit: contain;
-        border: none; /* 移除邊框 */
-        box-shadow: none; /* 移除陰影 */
-      }
+.cover-image {
+width: 60%;
+max-width: 300px;
+height: auto;
+margin: 1.5rem 0;
+object-fit: contain;
+border: none; /* 移除邊框 */
+box-shadow: none; /* 移除陰影 */
+}
 
-      .cover-author {
-        font-size: 1rem;
-        color: #888;
-        font-style: italic;
-      }
+.cover-author {
+font-size: 1rem;
+color: #888;
+font-style: italic;
+}
 
-      .vinyl-container {
-        margin-top: 2rem;
-        width: 120px;
-        height: 120px;
-        position: relative;
-      }
-      #vinyl {
-        width: 100%;
-        height: 100%;
-        border-radius: 50%;
-        transition: transform 0.3s ease;
-      }
-      .spin {
-        animation: spin 3s linear infinite;
-      }
-      @keyframes spin {
-        from {
-          transform: rotate(0deg);
-        }
-        to {
-          transform: rotate(360deg);
-        }
-      }
+.vinyl-container {
+margin-top: 2rem;
+width: 120px;
+height: 120px;
+position: relative;
+}
+#vinyl {
+width: 100%;
+height: 100%;
+border-radius: 50%;
+transition: transform 0.3s ease;
+}
+.spin {
+animation: spin 3s linear infinite;
+}
+@keyframes spin {
+from {
+transform: rotate(0deg);
+}
+to {
+transform: rotate(360deg);
+}
+}
 
-      #lyrics {
-        font-size: 1.2rem;
-        max-width: 90%;
-        line-height: 1.8;
-        text-align: center;
-        transition: opacity 0.5s ease;
-      }
-      .english-text {
-        font-family: "Cormorant Garamond", serif;
-        font-size: 1.2rem;
-        font-style: italic;
-        color: #777;
-        margin-top: 1rem;
-      }
-      body {
-        margin: 0;
-        font-family: "Noto Sans TC", sans-serif;
-        background: #fffaf8;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 100vh;
-      }
-      .book {
-        position: relative;
-        width: 90%;
-        max-width: 600px;
-        height: 90vh;
-        display: flex;
-        flex-direction: column;
-        overflow: hidden;
-        background: #ffffff;
-        border-radius: 16px;
-        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-      }
+#lyrics {
+font-size: 1.2rem;
+max-width: 90%;
+line-height: 1.8;
+text-align: center;
+transition: opacity 0.5s ease;
+}
+.english-text {
+font-family: "Cormorant Garamond", serif;
+font-size: 1.2rem;
+font-style: italic;
+color: #777;
+margin-top: 1rem;
+}
+body {
+margin: 0;
+font-family: "Noto Sans TC", sans-serif;
+background: #fffaf8;
+display: flex;
+justify-content: center;
+align-items: center;
+height: 100vh;
+}
+.book {
+position: relative;
+width: 90%;
+max-width: 600px;
+height: 90vh;
+display: flex;
+flex-direction: column;
+overflow: hidden;
+background: #ffffff;
+border-radius: 16px;
+box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
 
-      .page {
-        flex: 1;
-        overflow-y: auto; /* 讓內容可捲動 */
-        padding: 2rem;
-        display: none;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        text-align: center;
-        font-size: 1.5rem;
-        line-height: 2;
-      }
+.page {
+flex: 1;
+overflow-y: auto; /* 讓內容可捲動 */
+padding: 2rem;
+display: none;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+text-align: center;
+font-size: 1.5rem;
+line-height: 2;
+}
 
-      .nav {
-        position: relative;
-        z-index: 2;
-        display: flex;
-        justify-content: space-between;
-        padding: 1rem;
-        background: #fffaf8;
-      }
-      .page.active {
-        display: flex;
-      }
-      .nav {
-        display: flex;
-        justify-content: space-between;
-        padding: 1rem;
-      }
-      button {
-        padding: 0.5rem 1rem;
-        background: #ffc0cb;
-        border: none;
-        border-radius: 8px;
-        font-size: 1rem;
-        cursor: pointer;
-        transition: background 0.3s;
-      }
-      button:hover {
-        background: #ffa5b4;
-      }
-      .cover-title {
-        font-size: 2.5rem;
-        color: #ff82a9;
-        font-weight: bold;
-      }
-    </style>
-  </head>
-  <body>
-    <audio autoplay loop>
-      <source src="be-my-ocean.mp3" type="audio/mpeg" />
-      Your browser does not support the audio element.
-    </audio>
+.nav {
+position: relative;
+z-index: 2;
+display: flex;
+justify-content: space-between;
+padding: 1rem;
+background: #fffaf8;
+}
+.page.active {
+display: flex;
+}
+.nav {
+display: flex;
+justify-content: space-between;
+padding: 1rem;
+}
+button {
+padding: 0.5rem 1rem;
+background: #ffc0cb;
+border: none;
+border-radius: 8px;
+font-size: 1rem;
+cursor: pointer;
+transition: background 0.3s;
+}
+button:hover {
+background: #ffa5b4;
+}
+.cover-title {
+font-size: 2.5rem;
+color: #ff82a9;
+font-weight: bold;
+}
+</style>
+</head>
+<body>
+<audio autoplay loop>
+<source src="be-my-ocean.mp3" type="audio/mpeg" />
+Your browser does not support the audio element.
+</audio>
 
-    <div class="book">
-      <div class="page active">
-        <div class="cover-title">Serendipity</div>
-        <img src="star.png" alt="cover image" class="cover-image" />
-        <div class="cover-author">Story by Jenny / 文・兆珍</div>
-      </div>
+<div class="book">
+<div class="page active">
+<div class="cover-title">Serendipity</div>
+<img src="star.png" alt="cover image" class="cover-image" />
+<div class="cover-author">Story by Jenny / 文・兆珍</div>
+</div>
 
-      <div class="page">
-        「我一直以為， 我的世界是由數字組成的。<br />一、二、三……一直到十。<br />一步一步，整齊又有秩序。」
-        <div class="english-text">
-          “I always thought my world was made of numbers. One, two, three… all
-          the way to ten. Step by step, neat and tidy.”
-        </div>
-      </div>
-      <div class="page">
-        「我有我的計劃。<br />每個數字都有位置，<br />每條路都有規則。」
-        <div class="english-text">
-          “I had a plan. Every number had a place. Every path had a rule.”
-        </div>
-      </div>
-      <div class="page">
-        「直到……你出現了。」
-        <div class="english-text">“But then… you came.”</div>
-      </div>
-      <div class="page">
-        「你不是我計劃裡的數字。<br />你不照規則走。<br />你……很不一樣。」
-        <div class="english-text">
-          “You weren’t part of my numbers. You didn’t follow the rules. You
-          were… different.”
-        </div>
-      </div>
-      <div class="page">
-        「一開始，我很困惑。<br />一切……是不是都壞掉了？」
-        <div class="english-text">
-          “At first, I was confused. Was everything broken now?”
-        </div>
-      </div>
-      <div class="page">
-        「但慢慢地，我看見了……<br />不是壞了，<br />而是變成了新的樣子。」
-        <div class="english-text">
-          “But slowly, I saw… It wasn’t broken. It was becoming something new.”
-        </div>
-      </div>
-      <div class="page">
-        「你沒有破壞規則，<br />而是成為了新的規則。」
-        <div class="english-text">
-          “You didn’t ruin the rules. You became the new rule. <br />And now my
-          heart follows only yours.”
-        </div>
-      </div>
-      <div class="page">
-        「你不是例外，<br />你是我唯一的公式，<br />是我的新世界，我的現在<br />和未來。」
-        <div class="english-text">
-          “You’re not the exception. You are my only rule. My world, <br />my
-          now and my forever.”
-        </div>
-      </div>
-      <div class="page">
-        <div
-          style="
-            font-size: 1.8rem;
-            color: #ff82a9;
-            margin-bottom: 1rem;
-            font-weight: bold;
-          "
-        >
-          To Eric
-        </div>
-        「緣分讓你來到我身邊——<br />
-        不是偶然，<br />
-        而是我們靈魂之間安靜又堅定的引力，<br />
-        讓我們無法分離。」
-        <div class="english-text">
-          “Serendipity brought you to me—not by chance, <br />but by the quiet
-          gravity of our souls <br />refusing to stay apart.”
-        </div>
-      </div>
+<div class="page">
+「我一直以為， 我的世界是由數字組成的。<br />一、二、三……一直到十。<br />一步一步，整齊又有秩序。」
+<div class="english-text">
+“I always thought my world was made of numbers. One, two, three… all
+the way to ten. Step by step, neat and tidy.”
+</div>
+</div>
+<div class="page">
+「我有我的計劃。<br />每個數字都有位置，<br />每條路都有規則。」
+<div class="english-text">
+“I had a plan. Every number had a place. Every path had a rule.”
+</div>
+</div>
+<div class="page">
+「直到……你出現了。」
+<div class="english-text">“But then… you came.”</div>
+</div>
+<div class="page">
+「你不是我計劃裡的數字。<br />你不照規則走。<br />你……很不一樣。」
+<div class="english-text">
+“You weren’t part of my numbers. You didn’t follow the rules. You
+were… different.”
+</div>
+</div>
+<div class="page">
+「一開始，我很困惑。<br />一切……是不是都壞掉了？」
+<div class="english-text">
+“At first, I was confused. Was everything broken now?”
+</div>
+</div>
+<div class="page">
+「但慢慢地，我看見了……<br />不是壞了，<br />而是變成了新的樣子。」
+<div class="english-text">
+“But slowly, I saw… It wasn’t broken. It was becoming something new.”
+</div>
+</div>
+<div class="page">
+「你沒有破壞規則，<br />而是成為了新的規則。」
+<div class="english-text">
+“You didn’t ruin the rules. You became the new rule. <br />And now my
+heart follows only yours.”
+</div>
+</div>
+<div class="page">
+「你不是例外，<br />你是我唯一的公式，<br />是我的新世界，我的現在<br />和未來。」
+<div class="english-text">
+“You’re not the exception. You are my only rule. My world, <br />my
+now and my forever.”
+</div>
+</div>
+<div class="page">
+<div
+style="
+           font-size: 1.8rem;
+           color: #ff82a9;
+           margin-bottom: 1rem;
+           font-weight: bold;
+         "
+>
+To Eric
+</div>
+「緣分讓你來到我身邊——<br />
+不是偶然，<br />
+而是我們靈魂之間安靜又堅定的引力，<br />
+讓我們無法分離。」
+<div class="english-text">
+“Serendipity brought you to me—not by chance, but by the quiet
+gravity of our souls <br />refusing to stay apart.”
+</div>
+</div>
 
-      <div class="page" id="jukebox-page">
-        <button id="playSongBtn" style="margin-top: 2rem">
-          🎵 《Be My Ocean》(建議戴耳機)
-        </button>
-        <div class="vinyl-container">
-          <img id="vinyl" src="vinyl.png" alt="Vinyl Record" />
-        </div>
-        <audio id="jukebox-audio" src="be my ocean.m4a"></audio>
-        <div
-          id="lyrics"
-          style="margin-top: 2rem; font-style: italic; color: #666"
-        >
-          <!-- 動態歌詞會出現在這裡 -->
-        </div>
-      </div>
+<div class="page" id="jukebox-page">
+<button id="playSongBtn" style="margin-top: 2rem">
+🎵 《Be My Ocean》
+</button>
+<div class="vinyl-container">
+<img id="vinyl" src="vinyl.png" alt="Vinyl Record" />
+</div>
+<audio id="jukebox-audio" src="be my ocean.m4a"></audio>
+<div
+id="lyrics"
+style="margin-top: 2rem; font-style: italic; color: #666"
+>
+<!-- 動態歌詞會出現在這裡 -->
+</div>
+</div>
 
-      <div class="page" id="love-page" style="position: relative">
-        <img
-          src="us.png"
-          alt="us"
+<div class="page" id="love-page" style="position: relative">
+<img
+src="us.png"
+alt="us"
+          style="width: 100%; height: 100%; object-fit: cover"
           style="width: 90%; height: 90%; object-fit: contain"
-        />
-      </div>
+/>
+</div>
 
-      <div class="nav">
-        <button onclick="prevPage()">← 上一頁</button>
-        <button id="nextBtn" onclick="nextPage()">下一頁 →</button>
-      </div>
-    </div>
+<div class="nav">
+<button onclick="prevPage()">← 上一頁</button>
+<button id="nextBtn" onclick="nextPage()">下一頁 →</button>
+</div>
+</div>
 
-    <script>
-      
-      function createHeart() {
-        const heart = document.createElement("div");
-        heart.textContent = "💖";
-        heart.style.position = "absolute";
-        heart.style.left = Math.random() * 90 + "%";
-        heart.style.top = Math.random() * 90 + "%";
-        heart.style.fontSize = "2rem";
-        heart.style.animation = "float 2s ease-out forwards";
-        document.querySelector(".book").appendChild(heart);
+<script>
+function createHeart() {
+const heart = document.createElement("div");
+heart.textContent = "💖";
+heart.style.position = "absolute";
+heart.style.left = Math.random() * 90 + "%";
+heart.style.top = Math.random() * 90 + "%";
+heart.style.fontSize = "2rem";
+heart.style.animation = "float 2s ease-out forwards";
+document.querySelector(".book").appendChild(heart);
 
-        setTimeout(() => heart.remove(), 2000);
-      }
+setTimeout(() => heart.remove(), 2000);
+}
 
-      const pages = document.querySelectorAll(".page");
-      let currentPage = 0;
+const pages = document.querySelectorAll(".page");
+let currentPage = 0;
 
-      function showPage(index) {
-        pages.forEach((p, i) => p.classList.toggle("active", i === index));
-        if (index === pages.length - 1) {
-      nextBtn.textContent = "I love you ❤️";
-    } else {
-      nextBtn.textContent = "下一頁 →";
-    }
-      }
-    nextBtn.onclick = () => {
-    if (currentPage < pages.length - 1) {
-      currentPage++;
-      showPage(currentPage);
-    } else if (musicEnded) {
-      // 只有音樂播完後才會在最後一頁觸發愛心動畫
-      createHeart();
-    }
-  };
+function showPage(index) {
+pages.forEach((p, i) => p.classList.toggle("active", i === index));
+}
 
-      function nextPage() {
-        if (currentPage < pages.length - 1) {
-          currentPage++;
-          showPage(currentPage);
-        }
-      }
+function nextPage() {
+if (currentPage < pages.length - 1) {
+currentPage++;
+showPage(currentPage);
+}
+}
 
-      function prevPage() {
-        if (currentPage > 0) {
-          currentPage--;
-          showPage(currentPage);
-        }
-      }
+function prevPage() {
+if (currentPage > 0) {
+currentPage--;
+showPage(currentPage);
+}
+}
 
-      const lyricsData = [
+const lyricsData = [
        { time: 0, text: "" },
         { time: 6, text: "I’m in love with you, yes <br />I feel it" },
         { time: 10, text: "Will you be the one to catch these feelings" },
@@ -388,69 +375,58 @@
         { time: 154, text: "謝謝你來了<br/>還請你繼續留在我身邊歐!❤" },
       ];
 
-      const audio = document.getElementById("jukebox-audio");
-      const playBtn = document.getElementById("playSongBtn");
-      const lyricsEl = document.getElementById("lyrics");
-      const nextBtn = document.getElementById("nextBtn");
+const audio = document.getElementById("jukebox-audio");
+const playBtn = document.getElementById("playSongBtn");
+const lyricsEl = document.getElementById("lyrics");
+const nextBtn = document.getElementById("nextBtn");
 
-      let isPlaying = false;
+let isPlaying = false;
 
-      playBtn.addEventListener("click", () => {
-        if (isPlaying) {
-          audio.pause();
-          vinyl.classList.remove("spin");
-          playBtn.textContent = "🎵 《Be My Ocean》";
-        } else {
-          audio.play();
-          vinyl.classList.add("spin");
-          playBtn.textContent = "⏸️ 我愛你寶寶 ❤️ ";
-        }
-        isPlaying = !isPlaying;
-      });
+playBtn.addEventListener("click", () => {
+if (isPlaying) {
+audio.pause();
+vinyl.classList.remove("spin");
+playBtn.textContent = "🎵 《Be My Ocean》";
+} else {
+audio.play();
+vinyl.classList.add("spin");
+playBtn.textContent = "⏸️ 我愛你寶寶 ❤️ ";
+}
+isPlaying = !isPlaying;
+});
 
-      audio.addEventListener("timeupdate", () => {
-        const currentTime = audio.currentTime;
-        const currentLyric = lyricsData
-          .slice()
-          .reverse()
-          .find((line) => currentTime >= line.time);
-        if (currentLyric) {
-          lyricsEl.innerHTML = currentLyric.text;
-        }
-      });
+audio.addEventListener("timeupdate", () => {
+const currentTime = audio.currentTime;
+const currentLyric = lyricsData
+.slice()
+.reverse()
+.find((line) => currentTime >= line.time);
+if (currentLyric) {
+lyricsEl.innerHTML = currentLyric.text;
+}
+});
 
-      audio.addEventListener("ended", () => {
-        currentPage++;
-        showPage(currentPage);
+audio.addEventListener("ended", () => {
+currentPage++;
+showPage(currentPage);
 
-        // 顯示 "I love you ❤️" 按鈕
-        nextBtn.style.display = "inline-block";
-        nextBtn.textContent = "I love you ❤️";
+// 顯示 "I love you ❤️" 按鈕
+nextBtn.style.display = "inline-block";
+nextBtn.textContent = "I love you ❤️";
 
-        // 愛心點擊事件
-        nextBtn.onclick = () => {
-  createHeart(); // 產生愛心動畫
-  nextPage();    // 繼續翻到下一頁
-};
-      function showPage(index) {
-        pages.forEach((p, i) => p.classList.toggle("active", i === index));
+// 愛心點擊事件
+nextBtn.onclick = createHeart;
+});
+function showPage(index) {
+pages.forEach((p, i) => p.classList.toggle("active", i === index));
 
-        // 當到達播放音樂那頁（倒數第二頁）時，隱藏下一頁按鈕
-        if (index === pages.length - 2) {
-          nextBtn.style.display = "none";
-        } else {
-          nextBtn.style.display = "inline-block";
-        }
-        / 備援：強制定時檢查是否播放完畢
-setInterval(() => {
-  if (audio.ended && nextBtn.textContent !== "I love you ❤️") {
-    currentPage++;
-    showPage(currentPage);
-    nextBtn.style.display = "inline-block";
-    nextBtn.textContent = "I love you ❤️";
-  }
-}, 1000);
-      }
-    </script>
-  </body>
+// 當到達播放音樂那頁（倒數第二頁）時，隱藏下一頁按鈕
+if (index === pages.length - 2) {
+nextBtn.style.display = "none";
+} else {
+nextBtn.style.display = "inline-block";
+}
+}
+</script>
+</body>
 </html>
