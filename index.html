@@ -413,8 +413,10 @@
         nextBtn.textContent = "I love you ❤️";
 
         // 愛心點擊事件
-        nextBtn.onclick = createHeart;
-      });
+        nextBtn.onclick = () => {
+  createHeart(); // 產生愛心動畫
+  nextPage();    // 繼續翻到下一頁
+};
       function showPage(index) {
         pages.forEach((p, i) => p.classList.toggle("active", i === index));
 
