@@ -9,140 +9,140 @@ rel="stylesheet"
 />
 <link rel="icon" href="favicon.png" type="image/png" />
     
-    <title>A storybook for Eric</title>
+<title>A storybook for Eric</title>
 <style>
 @keyframes float {
-0% {
-transform: translateY(0) scale(1);
-opacity: 1;
-}
-100% {
-transform: translateY(-100px) scale(1.5);
-opacity: 0;
-}
+  0% {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-100px) scale(1.5);
+    opacity: 0;
+  }
 }
 
 .cover-image {
-width: 60%;
-max-width: 300px;
-height: auto;
-margin: 1.5rem 0;
-object-fit: contain;
-border: none; /* 移除邊框 */
-box-shadow: none; /* 移除陰影 */
+  width: 60%;
+  max-width: 300px;
+  height: auto;
+  margin: 1.5rem 0;
+  object-fit: contain;
+  border: none; /* 移除邊框 */
+  box-shadow: none; /* 移除陰影 */
 }
 
 .cover-author {
-font-size: 1rem;
-color: #888;
-font-style: italic;
+  font-size: 1rem;
+  color: #888;
+  font-style: italic;
 }
 
 .vinyl-container {
-margin-top: 2rem;
-width: 120px;
-height: 120px;
-position: relative;
+  margin-top: 2rem;
+  width: 120px;
+  height: 120px;
+  position: relative;
 }
 #vinyl {
-width: 100%;
-height: 100%;
-border-radius: 50%;
-transition: transform 0.3s ease;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  transition: transform 0.3s ease;
 }
 .spin {
-animation: spin 3s linear infinite;
+  animation: spin 3s linear infinite;
 }
 @keyframes spin {
-from {
-transform: rotate(0deg);
-}
-to {
-transform: rotate(360deg);
-}
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 #lyrics {
-font-size: 1.2rem;
-max-width: 90%;
-line-height: 1.8;
-text-align: center;
-transition: opacity 0.5s ease;
+  font-size: 1.2rem;
+  max-width: 90%;
+  line-height: 1.8;
+  text-align: center;
+  transition: opacity 0.5s ease;
 }
 .english-text {
-font-family: "Cormorant Garamond", serif;
-font-size: 1.2rem;
-font-style: italic;
-color: #777;
-margin-top: 1rem;
+  font-family: "Cormorant Garamond", serif;
+  font-size: 1.2rem;
+  font-style: italic;
+  color: #777;
+  margin-top: 1rem;
 }
 body {
-margin: 0;
-font-family: "Noto Sans TC", sans-serif;
-background: #fffaf8;
-display: flex;
-justify-content: center;
-align-items: center;
-height: 100vh;
+  margin: 0;
+  font-family: "Noto Sans TC", sans-serif;
+  background: #fffaf8;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
 }
 .book {
-position: relative;
-width: 90%;
-max-width: 600px;
-height: 90vh;
-display: flex;
-flex-direction: column;
-overflow: hidden;
-background: #ffffff;
-border-radius: 16px;
-box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  position: relative;
+  width: 90%;
+  max-width: 600px;
+  height: 90vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  background: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
 }
 
 .page {
-flex: 1;
-overflow-y: auto; /* 讓內容可捲動 */
-padding: 2rem;
-display: none;
-flex-direction: column;
-justify-content: center;
-align-items: center;
-text-align: center;
-font-size: 1.5rem;
-line-height: 2;
+  flex: 1;
+  overflow-y: auto; /* 讓內容可捲動 */
+  padding: 2rem;
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-size: 1.5rem;
+  line-height: 2;
 }
 
 .nav {
-position: relative;
-z-index: 2;
-display: flex;
-justify-content: space-between;
-padding: 1rem;
-background: #fffaf8;
+  position: relative;
+  z-index: 2;
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem;
+  background: #fffaf8;
 }
 .page.active {
-display: flex;
+  display: flex;
 }
 .nav {
-display: flex;
-justify-content: space-between;
-padding: 1rem;
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem;
 }
 button {
-padding: 0.5rem 1rem;
-background: #ffc0cb;
-border: none;
-border-radius: 8px;
-font-size: 1rem;
-cursor: pointer;
-transition: background 0.3s;
+  padding: 0.5rem 1rem;
+  background: #ffc0cb;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.3s;
 }
 button:hover {
-background: #ffa5b4;
+  background: #ffa5b4;
 }
 .cover-title {
-font-size: 2.5rem;
-color: #ff82a9;
-font-weight: bold;
+  font-size: 2.5rem;
+  color: #ff82a9;
+  font-weight: bold;
 }
 </style>
 </head>
@@ -162,61 +162,61 @@ Your browser does not support the audio element.
 <div class="page">
 「我一直以為， 我的世界是由數字組成的。<br />一、二、三……一直到十。<br />一步一步，整齊又有秩序。」
 <div class="english-text">
-“I always thought my world was made of numbers. One, two, three… all
-the way to ten. Step by step, neat and tidy.”
+"I always thought my world was made of numbers. One, two, three… all
+the way to ten. Step by step, neat and tidy."
 </div>
 </div>
 <div class="page">
 「我有我的計劃。<br />每個數字都有位置，<br />每條路都有規則。」
 <div class="english-text">
-“I had a plan. Every number had a place. Every path had a rule.”
+"I had a plan. Every number had a place. Every path had a rule."
 </div>
 </div>
 <div class="page">
 「直到……你出現了。」
-<div class="english-text">“But then… you came.”</div>
+<div class="english-text">"But then… you came."</div>
 </div>
 <div class="page">
 「你不是我計劃裡的數字。<br />你不照規則走。<br />你……很不一樣。」
 <div class="english-text">
-“You weren’t part of my numbers. You didn’t follow the rules. You
-were… different.”
+"You weren't part of my numbers. You didn't follow the rules. You
+were… different."
 </div>
 </div>
 <div class="page">
 「一開始，我很困惑。<br />一切……是不是都壞掉了？」
 <div class="english-text">
-“At first, I was confused. Was everything broken now?”
+"At first, I was confused. Was everything broken now?"
 </div>
 </div>
 <div class="page">
 「但慢慢地，我看見了……<br />不是壞了，<br />而是變成了新的樣子。」
 <div class="english-text">
-“But slowly, I saw… It wasn’t broken. It was becoming something new.”
+"But slowly, I saw… It wasn't broken. It was becoming something new."
 </div>
 </div>
 <div class="page">
 「你沒有破壞規則，<br />而是成為了新的規則。」
 <div class="english-text">
-“You didn’t ruin the rules. You became the new rule. <br />And now my
-heart follows only yours.”
+"You didn't ruin the rules. You became the new rule. <br />And now my
+heart follows only yours."
 </div>
 </div>
 <div class="page">
 「你不是例外，<br />你是我唯一的公式，<br />是我的新世界，我的現在<br />和未來。」
 <div class="english-text">
-“You’re not the exception. You are my only rule. My world, <br />my
-now and my forever.”
+"You're not the exception. You are my only rule. My world, <br />my
+now and my forever."
 </div>
 </div>
 <div class="page">
 <div
 style="
-           font-size: 1.8rem;
-           color: #ff82a9;
-           margin-bottom: 1rem;
-           font-weight: bold;
-         "
+  font-size: 1.8rem;
+  color: #ff82a9;
+  margin-bottom: 1rem;
+  font-weight: bold;
+"
 >
 To Eric
 </div>
@@ -225,8 +225,8 @@ To Eric
 而是我們靈魂之間安靜又堅定的引力，<br />
 讓我們無法分離。」
 <div class="english-text">
-“Serendipity brought you to me—not by chance, but by the quiet
-gravity of our souls <br />refusing to stay apart.”
+"Serendipity brought you to me—not by chance, but by the quiet
+gravity of our souls <br />refusing to stay apart."
 </div>
 </div>
 
@@ -250,182 +250,179 @@ style="margin-top: 2rem; font-style: italic; color: #666"
 <img
 src="us.png"
 alt="us"
-          style="width: 100%; height: 100%; object-fit: cover"
-          style="width: 90%; height: 90%; object-fit: contain"
+style="width: 100%; height: 100%; object-fit: cover"
 />
 </div>
 
 <div class="nav">
-<button onclick="prevPage()">← 上一頁</button>
-<button id="nextBtn" onclick="nextPage()">下一頁 →</button>
+<button id="prevBtn">← 上一頁</button>
+<button id="nextBtn">下一頁 →</button>
 </div>
 </div>
 
 <script>
-function createHeart() {
-const heart = document.createElement("div");
-heart.textContent = "💖";
-heart.style.position = "absolute";
-heart.style.left = Math.random() * 90 + "%";
-heart.style.top = Math.random() * 90 + "%";
-heart.style.fontSize = "2rem";
-heart.style.animation = "float 2s ease-out forwards";
-document.querySelector(".book").appendChild(heart);
-
-setTimeout(() => heart.remove(), 2000);
-}
-
+// 全域變數定義
 const pages = document.querySelectorAll(".page");
-let currentPage = 0;
-
-function showPage(index) {
-pages.forEach((p, i) => p.classList.toggle("active", i === index));
-}
-
-function nextPage() {
-if (currentPage < pages.length - 1) {
-currentPage++;
-showPage(currentPage);
-}
-}
-
-function prevPage() {
-if (currentPage > 0) {
-currentPage--;
-showPage(currentPage);
-}
-}
-
-const lyricsData = [
-       { time: 0, text: "" },
-        { time: 6, text: "I’m in love with you, yes <br />I feel it" },
-        { time: 10, text: "Will you be the one to catch these feelings" },
-        {
-          time: 16,
-          text: "With you on this bed the air is something",
-        },
-        { time: 20, text: "It took my breath away" },
-        {
-          time: 26,
-          text: "You’re my hopeless devotion",
-        },
-        { time: 29, text: "Dealing oh with you, I do with caution" },
-        {
-          time: 35,
-          text: "Because I don’t want the two of us to be broken",
-        },
-        { time: 40, text: "So just take me" },
-        { time: 42, text: "Be my ocean <br />What is the commotion?" },
-        {
-          time: 46,
-          text: "I just wanna dive in the river",
-        },
-        { time: 49, text: "To be with the one I love" },
-        {
-          time: 52,
-          text: "And if I tried to hurt you",
-        },
-        { time: 56, text: "Still I’d belong to you" },
-        {
-          time: 58,
-          text: "Dive in the river",
-        },
-        { time: 60, text: "To be with <br />To be with the" },
-        { time: 63, text: "Be with the one I love" },
-        {
-          time: 69,
-          text: "Am I dead already?",
-        },
-        { time: 72, text: "Abandon ship, these waves they tip me over" },
-        { time: 78, text: "And I’m just about to sink" },
-        {
-          time: 81,
-          text: "But if you’re ever down and out",
-        },
-        { time: 83, text: "And if there ever is a doubt" },
-        { time: 86, text: "Then you call me" },
-        { time: 91, text: "Be my ocean <br />What is the commotion?" },
-        {
-          time: 95,
-          text: "I just wanna dive in the river",
-        },
-        { time: 98, text: "To be with the one I love" },
-        { time: 101,text: "And if I tried to hurt you" },
-        { time: 105, text: "Still I’d belong to you" },
-        { time: 107, text: "Dive in the river" },
-        { time: 110, text: "To be with the one I love" },
-        {
-          time: 112,
-          text: "Let it be <br />Just you and me" },
-        { time: 114, text: "Now if I could drown in you" },
-        { time: 117, text: "Baby please <br />I need your release" },
-        {
-          time: 119,
-          text: "Now if I could drown in you",
-        },
-        { time: 123, text: "" },
-        { time: 126, text: "Now if I could drown in you"},
-        { time: 128, text: ""},
-        { time: 144, text: "And if I could" },
-        { time: 146, text: "And if I could drown in you"},
-        { time: 150, text: "亭良" },
-        { time: 151, text: "你的出現像是流星 意外地闖入我的世界" },
-        { time: 152, text: "我想" },
-        { time: 153, text: "一定是我許下的心願 變成你<br/>來到我身邊了" },
-        { time: 154, text: "謝謝你來了<br/>還請你繼續留在我身邊歐!❤" },
-      ];
-
 const audio = document.getElementById("jukebox-audio");
 const playBtn = document.getElementById("playSongBtn");
 const lyricsEl = document.getElementById("lyrics");
 const nextBtn = document.getElementById("nextBtn");
-
+const prevBtn = document.getElementById("prevBtn");
+const vinyl = document.getElementById("vinyl");
+let currentPage = 0;
 let isPlaying = false;
 
-playBtn.addEventListener("click", () => {
-if (isPlaying) {
-audio.pause();
-vinyl.classList.remove("spin");
-playBtn.textContent = "🎵 《Be My Ocean》";
-} else {
-audio.play();
-vinyl.classList.add("spin");
-playBtn.textContent = "⏸️ 我愛你寶寶 ❤️ ";
-}
-isPlaying = !isPlaying;
-});
-
-audio.addEventListener("timeupdate", () => {
-const currentTime = audio.currentTime;
-const currentLyric = lyricsData
-.slice()
-.reverse()
-.find((line) => currentTime >= line.time);
-if (currentLyric) {
-lyricsEl.innerHTML = currentLyric.text;
-}
-});
-
-audio.addEventListener("ended", () => {
-currentPage++;
-showPage(currentPage);
-
-// 顯示 "I love you ❤️" 按鈕
-nextBtn.style.display = "inline-block";
-nextBtn.textContent = "I love you ❤️";
-
-// 愛心點擊事件
-nextBtn.onclick = createHeart;
-});
+// 顯示指定頁面的函數 - 只定義一次
 function showPage(index) {
-pages.forEach((p, i) => p.classList.toggle("active", i === index));
-
-// 當到達播放音樂那頁（倒數第二頁）時，隱藏下一頁按鈕
-if (index === pages.length - 2) {
-nextBtn.style.display = "none";
-} else {
-nextBtn.style.display = "inline-block";
+  pages.forEach((p, i) => p.classList.toggle("active", i === index));
+  
+  // 當到達播放音樂那頁（倒數第二頁）時，隱藏下一頁按鈕
+  if (index === pages.length - 2) {
+    nextBtn.style.display = "none";
+  } else {
+    nextBtn.style.display = "inline-block";
+  }
+  
+  // 處理第一頁的上一頁按鈕
+  if (index === 0) {
+    prevBtn.style.display = "none";
+  } else {
+    prevBtn.style.display = "inline-block";
+  }
 }
+
+// 翻頁函數
+function nextPage() {
+  if (currentPage < pages.length - 1) {
+    currentPage++;
+    showPage(currentPage);
+  }
+}
+
+function prevPage() {
+  if (currentPage > 0) {
+    currentPage--;
+    showPage(currentPage);
+  }
+}
+
+// 愛心動畫函數
+function createHeart() {
+  const heart = document.createElement("div");
+  heart.textContent = "💖";
+  heart.style.position = "absolute";
+  heart.style.left = Math.random() * 90 + "%";
+  heart.style.top = Math.random() * 90 + "%";
+  heart.style.fontSize = "2rem";
+  heart.style.animation = "float 2s ease-out forwards";
+  document.querySelector(".book").appendChild(heart);
+
+  setTimeout(() => heart.remove(), 2000);
+}
+
+// 歌詞數據
+const lyricsData = [
+  { time: 0, text: "" },
+  { time: 6, text: "I'm in love with you, yes <br />I feel it" },
+  { time: 10, text: "Will you be the one to catch these feelings" },
+  { time: 16, text: "With you on this bed the air is something" },
+  { time: 20, text: "It took my breath away" },
+  { time: 26, text: "You're my hopeless devotion" },
+  { time: 29, text: "Dealing oh with you, I do with caution" },
+  { time: 35, text: "Because I don't want the two of us to be broken" },
+  { time: 40, text: "So just take me" },
+  { time: 42, text: "Be my ocean <br />What is the commotion?" },
+  { time: 46, text: "I just wanna dive in the river" },
+  { time: 49, text: "To be with the one I love" },
+  { time: 52, text: "And if I tried to hurt you" },
+  { time: 56, text: "Still I'd belong to you" },
+  { time: 58, text: "Dive in the river" },
+  { time: 60, text: "To be with <br />To be with the" },
+  { time: 63, text: "Be with the one I love" },
+  { time: 69, text: "Am I dead already?" },
+  { time: 72, text: "Abandon ship, these waves they tip me over" },
+  { time: 78, text: "And I'm just about to sink" },
+  { time: 81, text: "But if you're ever down and out" },
+  { time: 83, text: "And if there ever is a doubt" },
+  { time: 86, text: "Then you call me" },
+  { time: 91, text: "Be my ocean <br />What is the commotion?" },
+  { time: 95, text: "I just wanna dive in the river" },
+  { time: 98, text: "To be with the one I love" },
+  { time: 101,text: "And if I tried to hurt you" },
+  { time: 105, text: "Still I'd belong to you" },
+  { time: 107, text: "Dive in the river" },
+  { time: 110, text: "To be with the one I love" },
+  { time: 112, text: "Let it be <br />Just you and me" },
+  { time: 114, text: "Now if I could drown in you" },
+  { time: 117, text: "Baby please <br />I need your release" },
+  { time: 119, text: "Now if I could drown in you" },
+  { time: 123, text: "" },
+  { time: 126, text: "Now if I could drown in you" },
+  { time: 128, text: "" },
+  { time: 144, text: "And if I could" },
+  { time: 146, text: "And if I could drown in you" },
+  { time: 150, text: "亭良" },
+  { time: 151, text: "你的出現像是流星 意外地闖入我的世界" },
+  { time: 152, text: "我想" },
+  { time: 153, text: "一定是我許下的心願 變成你<br/>來到我身邊了" },
+  { time: 154, text: "謝謝你來了<br/>還請你繼續留在我身邊歐!❤" }
+];
+
+// 事件監聽器設置
+// 正確設置按鈕的點擊事件
+nextBtn.addEventListener("click", nextPage);
+prevBtn.addEventListener("click", prevPage);
+
+// 音樂播放按鈕事件
+playBtn.addEventListener("click", () => {
+  if (isPlaying) {
+    audio.pause();
+    vinyl.classList.remove("spin");
+    playBtn.textContent = "🎵 《Be My Ocean》";
+  } else {
+    audio.play();
+    vinyl.classList.add("spin");
+    playBtn.textContent = "⏸️ 我愛你寶寶 ❤️ ";
+  }
+  isPlaying = !isPlaying;
+});
+
+// 歌詞更新事件
+audio.addEventListener("timeupdate", () => {
+  const currentTime = audio.currentTime;
+  const currentLyric = lyricsData
+    .slice()
+    .reverse()
+    .find((line) => currentTime >= line.time);
+  if (currentLyric) {
+    lyricsEl.innerHTML = currentLyric.text;
+  }
+});
+
+// 音樂結束事件
+audio.addEventListener("ended", () => {
+  currentPage++;
+  showPage(currentPage);
+  
+  // 音樂結束後，把下一頁按鈕變成愛心按鈕
+  nextBtn.textContent = "I love you ❤️";
+  
+  // 保存原始的nextPage函數
+  const originalNextPage = nextPage;
+  
+  // 重新定義nextBtn的點擊事件，讓它既產生愛心又翻頁
+  nextBtn.removeEventListener("click", nextPage);
+  nextBtn.addEventListener("click", () => {
+    createHeart();
+    originalNextPage();
+  });
+});
+
+// 初始化頁面設置
+showPage(currentPage);
+// 初始狀態下隱藏上一頁按鈕
+if (currentPage === 0) {
+  prevBtn.style.display = "none";
 }
 </script>
 </body>
