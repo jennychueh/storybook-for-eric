@@ -418,6 +418,13 @@
       function showPage(index) {
         pages.forEach((p, i) => p.classList.toggle("active", i === index));
 
+      // 保留原本點擊下一頁的功能，並加上愛心動畫
+  nextBtn.onclick = () => {
+    createHeart(); // 呼叫愛心動畫
+    currentPage++;
+    showPage(currentPage);
+  };      
+
         // 當到達播放音樂那頁（倒數第二頁）時，隱藏下一頁按鈕
         if (index === pages.length - 2) {
           nextBtn.style.display = "none";
