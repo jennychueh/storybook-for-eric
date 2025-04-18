@@ -260,6 +260,14 @@
     </div>
 
     <script>
+// ✅ 初始只設定「翻頁功能」，不冒愛心
+nextBtn.onclick = () => {
+  if (currentPage < pages.length - 1) {
+    currentPage++;
+    showPage(currentPage);
+  }
+};
+      
       function createHeart() {
         const heart = document.createElement("div");
         heart.textContent = "💖";
