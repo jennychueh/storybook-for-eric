@@ -260,13 +260,6 @@
     </div>
 
     <script>
-// ✅ 初始只設定「翻頁功能」，不冒愛心
-nextBtn.onclick = () => {
-  if (currentPage < pages.length - 1) {
-    currentPage++;
-    showPage(currentPage);
-  }
-};
       
       function createHeart() {
         const heart = document.createElement("div");
@@ -286,7 +279,21 @@ nextBtn.onclick = () => {
 
       function showPage(index) {
         pages.forEach((p, i) => p.classList.toggle("active", i === index));
+        if (index === pages.length - 1) {
+      nextBtn.textContent = "I love you ❤️";
+    } else {
+      nextBtn.textContent = "下一頁 →";
+    }
       }
+    nextBtn.onclick = () => {
+    if (currentPage < pages.length - 1) {
+      currentPage++;
+      showPage(currentPage);
+    } else if (musicEnded) {
+      // 只有音樂播完後才會在最後一頁觸發愛心動畫
+      createHeart();
+    }
+  };
 
       function nextPage() {
         if (currentPage < pages.length - 1) {
@@ -427,13 +434,6 @@ nextBtn.onclick = () => {
 };
       function showPage(index) {
         pages.forEach((p, i) => p.classList.toggle("active", i === index));
-
-      // 保留原本點擊下一頁的功能，並加上愛心動畫
-  nextBtn.onclick = () => {
-    createHeart(); // 呼叫愛心動畫
-    currentPage++;
-    showPage(currentPage);
-  };      
 
         // 當到達播放音樂那頁（倒數第二頁）時，隱藏下一頁按鈕
         if (index === pages.length - 2) {
