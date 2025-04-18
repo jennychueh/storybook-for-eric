@@ -253,10 +253,11 @@ style="margin-top: 2rem; font-style: italic; color: #666"
 <!-- 動態歌詞會出現在這裡 -->
 </div>
 <!-- 新增的按鈕，在音樂結束或遇到問題時顯示 -->
-<button id="goToLovePageBtn">繼續我們的故事 💖</button>
+<button id="goToLovePageBtn">Continue our Story 💖</button>
 </div>
 
 <div class="page" id="love-page" style="position: relative; background-color: #fef9f4; display: flex; justify-content: center; align-items: center;">
+    敬我們的第一個月，還有未來的每一個月！
   <img
     src="us.png"
     alt="us"
@@ -339,17 +340,23 @@ function goToLovePage() {
 
 // 愛心動畫函數
 function createHeart() {
-  const heart = document.createElement("div");
-  heart.textContent = "💖";
-  heart.style.position = "absolute";
-  heart.style.left = Math.random() * 90 + "%";
-  heart.style.top = Math.random() * 90 + "%";
-  heart.style.fontSize = "2rem";
-  heart.style.animation = "float 2s ease-out forwards";
-  document.querySelector(".book").appendChild(heart);
-
-  setTimeout(() => heart.remove(), 2000);
-}
+     // 一次產生3-5個愛心
+  const heartCount = Math.floor(Math.random() * 3) + 3; // 產生3到5的隨機數
+  for (let i = 0; i < heartCount; i++) {
+    const heart = document.createElement("div");
+    heart.textContent = "💖";
+    heart.style.position = "absolute";
+    heart.style.left = Math.random() * 90 + "%";
+    heart.style.top = Math.random() * 90 + "%";
+    heart.style.fontSize = "2rem";
+    heart.style.animation = "float 6s ease-out forwards";
+    heart.style.zIndex = "100"; // 確保愛心顯示在最上層
+    document.querySelector(".book").appendChild(heart);
+    
+    // 不再自動移除愛心，讓它們累積在畫面上
+    // 如果頁面愛心太多導致性能問題，可以設定較長的移除時間
+    // setTimeout(() => heart.remove(), 30000); // 可選：30秒後移除
+  }
 
 // 歌詞數據
 const lyricsData = [
