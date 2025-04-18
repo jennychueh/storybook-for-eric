@@ -8,143 +8,163 @@ href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@1,40
 rel="stylesheet"
 />
 <link rel="icon" href="favicon.png" type="image/png" />
-    
+
 <title>A storybook for Eric</title>
 <style>
+nav {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1000;
+  display: flex;
+  gap: 1rem;
+  padding: 1rem;
+  background: rgba(255, 250, 248, 0.9);
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+    
 @keyframes float {
-  0% {
-    transform: translateY(0) scale(1);
-    opacity: 1;
-  }
-  100% {
-    transform: translateY(-100px) scale(1.5);
-    opacity: 0;
-  }
+0% {
+transform: translateY(0) scale(1);
+opacity: 1;
+}
+100% {
+transform: translateY(-100px) scale(1.5);
+opacity: 0;
+}
 }
 
 .cover-image {
-  width: 60%;
-  max-width: 300px;
-  height: auto;
-  margin: 1.5rem 0;
-  object-fit: contain;
-  border: none; /* 移除邊框 */
-  box-shadow: none; /* 移除陰影 */
+width: 60%;
+max-width: 300px;
+height: auto;
+margin: 1.5rem 0;
+object-fit: contain;
+border: none; /* 移除邊框 */
+box-shadow: none; /* 移除陰影 */
 }
 
 .cover-author {
-  font-size: 1rem;
-  color: #888;
-  font-style: italic;
+font-size: 1rem;
+color: #888;
+font-style: italic;
 }
 
 .vinyl-container {
-  margin-top: 2rem;
-  width: 120px;
-  height: 120px;
-  position: relative;
+margin-top: 2rem;
+width: 120px;
+height: 120px;
+position: relative;
 }
 #vinyl {
-  width: 100%;
-  height: 100%;
-  border-radius: 50%;
-  transition: transform 0.3s ease;
+width: 100%;
+height: 100%;
+border-radius: 50%;
+transition: transform 0.3s ease;
 }
 .spin {
-  animation: spin 3s linear infinite;
+animation: spin 3s linear infinite;
 }
 @keyframes spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+from {
+transform: rotate(0deg);
+}
+to {
+transform: rotate(360deg);
+}
 }
 
 #lyrics {
-  font-size: 1.2rem;
-  max-width: 90%;
-  line-height: 1.8;
-  text-align: center;
-  transition: opacity 0.5s ease;
+font-size: 1.2rem;
+max-width: 90%;
+line-height: 1.8;
+text-align: center;
+transition: opacity 0.5s ease;
 }
 .english-text {
-  font-family: "Cormorant Garamond", serif;
-  font-size: 1.2rem;
-  font-style: italic;
-  color: #777;
-  margin-top: 1rem;
+font-family: "Cormorant Garamond", serif;
+font-size: 1.2rem;
+font-style: italic;
+color: #777;
+margin-top: 1rem;
 }
 body {
-  margin: 0;
-  font-family: "Noto Sans TC", sans-serif;
-  background: #fffaf8;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
+margin: 0;
+font-family: "Noto Sans TC", sans-serif;
+background: #fffaf8;
+display: flex;
+justify-content: center;
+align-items: center;
+height: 100vh;
 }
 .book {
-  position: relative;
-  width: 90%;
-  max-width: 600px;
-  height: 90vh;
-  display: flex;
-  flex-direction: column;
-  overflow: hidden;
-  background: #ffffff;
-  border-radius: 16px;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+position: relative;
+width: 90%;
+max-width: 600px;
+height: 90vh;
+display: flex;
+flex-direction: column;
+overflow: hidden;
+background: #ffffff;
+border-radius: 16px;
+box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
 }
 
 .page {
-  flex: 1;
-  overflow-y: auto; /* 讓內容可捲動 */
-  padding: 2rem;
-  display: none;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  font-size: 1.5rem;
-  line-height: 2;
+flex: 1;
+overflow-y: auto; /* 讓內容可捲動 */
+padding: 2rem;
+display: none;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+text-align: center;
+font-size: 1.5rem;
+line-height: 2;
 }
 
-
+.nav {
+position: relative;
+z-index: 2;
+display: flex;
+justify-content: space-between;
+padding: 1rem;
+background: #fffaf8;
 }
 .page.active {
-  display: flex;
+display: flex;
 }
 .nav {
-  display: flex;
-  justify-content: space-between;
-  padding: 1rem;
+display: flex;
+justify-content: space-between;
+padding: 1rem;
 }
 button {
-  padding: 0.5rem 1rem;
-  background: #ffc0cb;
-  border: none;
-  border-radius: 8px;
-  font-size: 1rem;
-  cursor: pointer;
-  transition: background 0.3s;
+padding: 0.5rem 1rem;
+background: #ffc0cb;
+border: none;
+border-radius: 8px;
+font-size: 1rem;
+cursor: pointer;
+transition: background 0.3s;
 }
 button:hover {
-  background: #ffa5b4;
+background: #ffa5b4;
 }
 .cover-title {
-  font-size: 2.5rem;
-  color: #ff82a9;
-  font-weight: bold;
+font-size: 2.5rem;
+color: #ff82a9;
+font-weight: bold;
 }
 
 /* 新增：進度 "To Love Page" 按鈕樣式 */
 #goToLovePageBtn {
-  margin-top: 1rem;
-  background: #ff82a9;
-  color: white;
-  display: none;
+margin-top: 1rem;
+background: #ff82a9;
+color: white;
+display: none;
 }
 </style>
 </head>
@@ -159,7 +179,10 @@ Your browser does not support the audio element.
 <div class="cover-title">Serendipity</div>
 <img src="star.png" alt="cover image" class="cover-image" />
 <div class="cover-author">Story by Jenny / 文・兆珍</div>
-   
+    <div class="nav">
+<button id="prevBtn">← 上一頁</button>
+<button id="nextBtn">下一頁 →</button>
+</div>
 </div>
 
 <div class="page">
@@ -215,10 +238,10 @@ now and my forever."
 <div class="page">
 <div
 style="
-  font-size: 1.8rem;
-  color: #ff82a9;
-  margin-bottom: 1rem;
-  font-weight: bold;
+ font-size: 1.8rem;
+ color: #ff82a9;
+ margin-bottom: 1rem;
+ font-weight: bold;
 "
 >
 To Eric
@@ -253,288 +276,285 @@ style="margin-top: 2rem; font-style: italic; color: #666"
 
 <div class="page" id="love-page" style="position: relative; background-color: #fef9f4; justify-content: center; align-items: center;">
 <div style="
-    font-size: 1.8rem;
-    font-weight: 500;
-    color: #b46060;
-    white-space: nowrap;
-    margin-bottom: 1rem;
-    font-family: 'Courier New', cursive, serif;
-    text-align: center;
-  ">    
+   font-size: 1.8rem;
+   font-weight: 500;
+   color: #b46060;
+   white-space: nowrap;
+   margin-bottom: 1rem;
+   font-family: 'Courier New', cursive, serif;
+   text-align: center;
+ ">    
 敬我們的第一個月，還有未來的每一個月！
-  <img
-    src="us.png"
-    alt="us"
-    style="max-width: 100%; max-height: 100%; object-fit: contain; object-position: center;"
-  />
+<img
+src="us.png"
+alt="us"
+style="max-width: 100%; max-height: 100%; object-fit: contain; object-position: center;"
+/>
 </div>
- <div class="nav">
-         <button onclick="prevPage()">← 上一頁</button>
-         <button id="nextBtn" onclick="nextPage()">下一頁 →</button>
-       </div>
+
 
 </div>
 
 <script>
 // 歌詞數據
 const lyricsData = [
-  { time: 0, text: "" },
-  { time: 6, text: "I'm in love with you, yes <br />I feel it" },
-  { time: 10, text: "Will you be the one to catch these feelings" },
-  { time: 16, text: "With you on this bed the air is something" },
-  { time: 20, text: "It took my breath away" },
-  { time: 26, text: "You're my hopeless devotion" },
-  { time: 29, text: "Dealing oh with you, I do with caution" },
-  { time: 34, text: "Because I don't want the two of us to be broken" },
-  { time: 39, text: "So just take me" },
-  { time: 42, text: "Be my ocean <br />What is the commotion?" },
-  { time: 46, text: "I just wanna dive in the river" },
-  { time: 49, text: "To be with the one I love" },
-  { time: 52, text: "And if I tried to hurt you" },
-  { time: 55, text: "Still I'd belong to you" },
-  { time: 58, text: "Dive in the river" },
-  { time: 60, text: "To be with <br />To be with the" },
-  { time: 63, text: "Be with the one I love" },
-  { time: 69, text: "Am I dead already?" },
-  { time: 73, text: "Abandon ship, these waves they tip me over" },
-  { time: 78, text: "And I'm just about to sink" },
-  { time: 80, text: "But if you're ever down and out" },
-  { time: 83, text: "And if there ever is a doubt" },
-  { time: 86, text: "Then you call me" },
-  { time: 91, text: "Be my ocean <br />What is the commotion?" },
-  { time: 95, text: "I just wanna dive in the river" },
-  { time: 98, text: "To be with the one I love" },
-  { time: 101,text: "And if I tried to hurt you" },
-  { time: 105, text: "Still I'd belong to you" },
-  { time: 107, text: "Dive in the river" },
-  { time: 109, text: "To be with the one I love" },
-  { time: 112, text: "Let it be <br />Just you and me" },
-  { time: 114, text: "Now if I could drown in you" },
-  { time: 117, text: "Baby please <br />I need your release" },
-  { time: 119, text: "Now if I could drown in you" },
-  { time: 123, text: "" },
-  { time: 126, text: "Now if I could drown in you" },
-  { time: 128, text: "" },
-  { time: 130, text: "寶寶" },
-  { time: 132, text: "你的出現是流星 闖進了我的生活" },
-  { time: 134, text: "我想" },
-  { time: 136, text: "一定是我曾經許下的心願 變成你" },
-  { time: 138, text: "來到我身邊了!" },
-  { time: 140, text: "謝謝你來了" },
-  { time: 142, text: "還請你繼續留在我身邊歐! ❤" },
-  { time: 145, text: "And if I could" },
-  { time: 146, text: "And if I could drown in you" },
-  { time: 150, text: "❤" },
+{ time: 0, text: "" },
+{ time: 6, text: "I'm in love with you, yes <br />I feel it" },
+{ time: 10, text: "Will you be the one to catch these feelings" },
+{ time: 16, text: "With you on this bed the air is something" },
+{ time: 20, text: "It took my breath away" },
+{ time: 26, text: "You're my hopeless devotion" },
+{ time: 29, text: "Dealing oh with you, I do with caution" },
+{ time: 34, text: "Because I don't want the two of us to be broken" },
+{ time: 39, text: "So just take me" },
+{ time: 42, text: "Be my ocean <br />What is the commotion?" },
+{ time: 46, text: "I just wanna dive in the river" },
+{ time: 49, text: "To be with the one I love" },
+{ time: 52, text: "And if I tried to hurt you" },
+{ time: 55, text: "Still I'd belong to you" },
+{ time: 58, text: "Dive in the river" },
+{ time: 60, text: "To be with <br />To be with the" },
+{ time: 63, text: "Be with the one I love" },
+{ time: 69, text: "Am I dead already?" },
+{ time: 73, text: "Abandon ship, these waves they tip me over" },
+{ time: 78, text: "And I'm just about to sink" },
+{ time: 80, text: "But if you're ever down and out" },
+{ time: 83, text: "And if there ever is a doubt" },
+{ time: 86, text: "Then you call me" },
+{ time: 91, text: "Be my ocean <br />What is the commotion?" },
+{ time: 95, text: "I just wanna dive in the river" },
+{ time: 98, text: "To be with the one I love" },
+{ time: 101,text: "And if I tried to hurt you" },
+{ time: 105, text: "Still I'd belong to you" },
+{ time: 107, text: "Dive in the river" },
+{ time: 109, text: "To be with the one I love" },
+{ time: 112, text: "Let it be <br />Just you and me" },
+{ time: 114, text: "Now if I could drown in you" },
+{ time: 117, text: "Baby please <br />I need your release" },
+{ time: 119, text: "Now if I could drown in you" },
+{ time: 123, text: "" },
+{ time: 126, text: "Now if I could drown in you" },
+{ time: 128, text: "" },
+{ time: 130, text: "寶寶" },
+{ time: 132, text: "你的出現是流星 闖進了我的生活" },
+{ time: 134, text: "我想" },
+{ time: 136, text: "一定是我曾經許下的心願 變成你" },
+{ time: 138, text: "來到我身邊了!" },
+{ time: 140, text: "謝謝你來了" },
+{ time: 142, text: "還請你繼續留在我身邊歐! ❤" },
+{ time: 145, text: "And if I could" },
+{ time: 146, text: "And if I could drown in you" },
+{ time: 150, text: "❤" },
 ];
 
 // DOM 加載完成後執行初始化
 document.addEventListener('DOMContentLoaded', function() {
-  // 全域變數定義
-  const pages = document.querySelectorAll(".page");
-  const audio = document.getElementById("jukebox-audio");
-  const playBtn = document.getElementById("playSongBtn");
-  const lyricsEl = document.getElementById("lyrics");
-  const nextBtn = document.getElementById("nextBtn");
-  const prevBtn = document.getElementById("prevBtn");
-  const vinyl = document.getElementById("vinyl");
-  const goToLovePageBtn = document.getElementById("goToLovePageBtn");
-  let currentPage = 0;
-  let isPlaying = false;
-  let songStarted = false;
-  let audioEndedHandled = false;
-  let songEndCheckerTimer;
+// 全域變數定義
+const pages = document.querySelectorAll(".page");
+const audio = document.getElementById("jukebox-audio");
+const playBtn = document.getElementById("playSongBtn");
+const lyricsEl = document.getElementById("lyrics");
+const nextBtn = document.getElementById("nextBtn");
+const prevBtn = document.getElementById("prevBtn");
+const vinyl = document.getElementById("vinyl");
+const goToLovePageBtn = document.getElementById("goToLovePageBtn");
+let currentPage = 0;
+let isPlaying = false;
+let songStarted = false;
+let audioEndedHandled = false;
+let songEndCheckerTimer;
 
-  // 顯示指定頁面的函數
-  function showPage(index) {
-    // 確保索引在有效範圍內
-    if (index < 0) index = 0;
-    if (index >= pages.length) index = pages.length - 1;
-    
-    // 隱藏所有頁面，只顯示當前頁面
-    pages.forEach((p, i) => {
-      if (i === index) {
-        p.classList.add("active");
-      } else {
-        p.classList.remove("active");
-      }
-    });
-    
-    // 當到達播放音樂那頁（倒數第二頁）時，隱藏下一頁按鈕
-    if (index === pages.length - 2) {
-      nextBtn.style.display = "none";
-    } else {
-      nextBtn.style.display = "inline-block";
-    }
-    
-    // 處理第一頁的上一頁按鈕
-    if (index === 0) {
-      prevBtn.style.display = "none";
-    } else {
-      prevBtn.style.display = "inline-block";
-    }
+// 顯示指定頁面的函數
+function showPage(index) {
+// 確保索引在有效範圍內
+if (index < 0) index = 0;
+if (index >= pages.length) index = pages.length - 1;
 
-    // 重置音樂頁面狀態
-    if (index === pages.length - 2) {
-      goToLovePageBtn.style.display = "none";
-      // 避免重複添加計時器
-      setupSongEndFallback();
-    }
-    
-    // 當到達最後一頁（愛心頁面）時
-    if (index === pages.length - 1) {
-      nextBtn.textContent = "I love you ❤️";
-      // 更改按鈕功能為創建愛心
-      nextBtn.removeEventListener("click", nextPage);
-      nextBtn.addEventListener("click", createHeart);
-    } else {
-      // 其他頁面，確保按鈕功能為翻頁
-      nextBtn.textContent = "下一頁 →";
-      nextBtn.removeEventListener("click", createHeart);
-      // 防止添加多個事件監聽器
-      nextBtn.removeEventListener("click", nextPage);
-      nextBtn.addEventListener("click", nextPage);
-    }
-  }
+// 隱藏所有頁面，只顯示當前頁面
+pages.forEach((p, i) => {
+if (i === index) {
+p.classList.add("active");
+} else {
+p.classList.remove("active");
+}
+});
 
-  // 翻頁函數
-  function nextPage() {
-    console.log("下一頁按鈕被點擊");
-    if (currentPage < pages.length - 1) {
-      currentPage++;
-      showPage(currentPage);
-    }
-  }
+// 當到達播放音樂那頁（倒數第二頁）時，隱藏下一頁按鈕
+if (index === pages.length - 2) {
+nextBtn.style.display = "none";
+} else {
+nextBtn.style.display = "inline-block";
+}
 
-  function prevPage() {
-    console.log("上一頁按鈕被點擊");
-    if (currentPage > 0) {
-      currentPage--;
-      showPage(currentPage);
-    }
-  }
+// 處理第一頁的上一頁按鈕
+if (index === 0) {
+prevBtn.style.display = "none";
+} else {
+prevBtn.style.display = "inline-block";
+}
 
-  // 進入最後愛心頁面
-  function goToLovePage() {
-    currentPage = pages.length - 1;
-    showPage(currentPage);
-  }
+// 重置音樂頁面狀態
+if (index === pages.length - 2) {
+goToLovePageBtn.style.display = "none";
+// 避免重複添加計時器
+setupSongEndFallback();
+}
 
-  // 愛心動畫函數
-  function createHeart() {
-    // 一次產生3-5個愛心
-    const heartCount = Math.floor(Math.random() * 3) + 3; // 產生3到5的隨機數
-    
-    for (let i = 0; i < heartCount; i++) {
-      const heart = document.createElement("div");
-      heart.textContent = "💖";
-      heart.style.position = "absolute";
-      heart.style.left = Math.random() * 90 + "%";
-      heart.style.top = Math.random() * 90 + "%";
-      heart.style.fontSize = "2rem";
-      heart.style.animation = "float 6s ease-out forwards";
-      heart.style.zIndex = "100"; // 確保愛心顯示在最上層
-      document.querySelector(".book").appendChild(heart);
-      
-      // 不再自動移除愛心，讓它們累積在畫面上
-      // 如果頁面愛心太多導致性能問題，可以設定較長的移除時間
-      // setTimeout(() => heart.remove(), 30000); // 可選：30秒後移除
-    }
-  }
+// 當到達最後一頁（愛心頁面）時
+if (index === pages.length - 1) {
+nextBtn.textContent = "I love you ❤️";
+// 更改按鈕功能為創建愛心
+nextBtn.removeEventListener("click", nextPage);
+nextBtn.addEventListener("click", createHeart);
+} else {
+// 其他頁面，確保按鈕功能為翻頁
+nextBtn.textContent = "下一頁 →";
+nextBtn.removeEventListener("click", createHeart);
+// 防止添加多個事件監聽器
+nextBtn.removeEventListener("click", nextPage);
+nextBtn.addEventListener("click", nextPage);
+}
+}
 
-  // 歌曲播放完畢檢查的備用方案
-  function setupSongEndFallback() {
-    // 清除可能已存在的計時器
-    if (songEndCheckerTimer) {
-      clearInterval(songEndCheckerTimer);
-    }
-    
-    // 設置一個檢查器，在播放中顯示「繼續」按鈕
-    songEndCheckerTimer = setInterval(() => {
-      // 如果歌曲已經開始播放
-      if (isPlaying) {
-        // 檢查是否接近歌曲結束（根據最後一條歌詞時間估算）
-        const currentTime = audio.currentTime;
-        
-        // 當歌曲播放到接近尾聲（最後一條歌詞後5秒）時
-        if (currentTime >= 150 && !audioEndedHandled) {
-          // 已經接近結束，顯示繼續按鈕
-          goToLovePageBtn.style.display = "inline-block";
-        }
-        
-        // 如果音樂已經結束但沒有正確觸發ended事件
-        if (audio.ended && !audioEndedHandled) {
-          handleAudioEnded();
-        }
-      }
-    }, 1000);
-  }
+// 翻頁函數
+function nextPage() {
+console.log("下一頁按鈕被點擊");
+if (currentPage < pages.length - 1) {
+currentPage++;
+showPage(currentPage);
+}
+}
 
-  // 處理音頻結束的函數
-  function handleAudioEnded() {
-    // 標記已處理，避免重複觸發
-    audioEndedHandled = true;
-    
-    // 顯示繼續按鈕
-    goToLovePageBtn.style.display = "inline-block";
-    
-    // 停止旋轉唱片
-    vinyl.classList.remove("spin");
-    
-    // 更新播放按鈕文字
-    playBtn.textContent = "🎵 《Be My Ocean》";
-    isPlaying = false;
-  }
+function prevPage() {
+console.log("上一頁按鈕被點擊");
+if (currentPage > 0) {
+currentPage--;
+showPage(currentPage);
+}
+}
 
-  // 音樂播放按鈕事件
-  playBtn.addEventListener("click", () => {
-    if (isPlaying) {
-      audio.pause();
-      vinyl.classList.remove("spin");
-      playBtn.textContent = "🎵 《Be My Ocean》";
-    } else {
-      audio.play().catch(err => {
-        // 處理播放失敗的情況（特別是在移動設備上）
-        console.error("播放失敗:", err);
-        // 顯示繼續按鈕，讓用戶可以手動進入下一頁
-        goToLovePageBtn.style.display = "inline-block";
-      });
-      vinyl.classList.add("spin");
-      playBtn.textContent = "⏸️ 我愛你寶寶 ❤️ ";
-      songStarted = true;
-      audioEndedHandled = false; // 重置結束標記
-    }
-    isPlaying = !isPlaying;
-  });
+// 進入最後愛心頁面
+function goToLovePage() {
+currentPage = pages.length - 1;
+showPage(currentPage);
+}
 
-  // 歌詞更新事件
-  audio.addEventListener("timeupdate", () => {
-    const currentTime = audio.currentTime;
-    const currentLyric = lyricsData
-      .slice()
-      .reverse()
-      .find((line) => currentTime >= line.time);
-    if (currentLyric) {
-      lyricsEl.innerHTML = currentLyric.text;
-    }
-  });
+// 愛心動畫函數
+function createHeart() {
+// 一次產生3-5個愛心
+const heartCount = Math.floor(Math.random() * 3) + 3; // 產生3到5的隨機數
 
-  // 音樂結束事件
-  audio.addEventListener("ended", handleAudioEnded);
+for (let i = 0; i < heartCount; i++) {
+const heart = document.createElement("div");
+heart.textContent = "💖";
+heart.style.position = "absolute";
+heart.style.left = Math.random() * 90 + "%";
+heart.style.top = Math.random() * 90 + "%";
+heart.style.fontSize = "2rem";
+heart.style.animation = "float 6s ease-out forwards";
+heart.style.zIndex = "100"; // 確保愛心顯示在最上層
+document.querySelector(".book").appendChild(heart);
 
-  // 音頻錯誤處理
-  audio.addEventListener("error", () => {
-    console.error("音頻加載錯誤");
-    // 顯示繼續按鈕，讓用戶可以手動進入下一頁
-    goToLovePageBtn.style.display = "inline-block";
-  });
+// 不再自動移除愛心，讓它們累積在畫面上
+// 如果頁面愛心太多導致性能問題，可以設定較長的移除時間
+// setTimeout(() => heart.remove(), 30000); // 可選：30秒後移除
+}
+}
 
-  // 事件監聽器設置
-  nextBtn.addEventListener("click", nextPage);
-  prevBtn.addEventListener("click", prevPage);
-  goToLovePageBtn.addEventListener("click", goToLovePage);
+// 歌曲播放完畢檢查的備用方案
+function setupSongEndFallback() {
+// 清除可能已存在的計時器
+if (songEndCheckerTimer) {
+clearInterval(songEndCheckerTimer);
+}
 
-  // 初始化頁面設置
-  showPage(currentPage);
+// 設置一個檢查器，在播放中顯示「繼續」按鈕
+songEndCheckerTimer = setInterval(() => {
+// 如果歌曲已經開始播放
+if (isPlaying) {
+// 檢查是否接近歌曲結束（根據最後一條歌詞時間估算）
+const currentTime = audio.currentTime;
+
+// 當歌曲播放到接近尾聲（最後一條歌詞後5秒）時
+if (currentTime >= 150 && !audioEndedHandled) {
+// 已經接近結束，顯示繼續按鈕
+goToLovePageBtn.style.display = "inline-block";
+}
+
+// 如果音樂已經結束但沒有正確觸發ended事件
+if (audio.ended && !audioEndedHandled) {
+handleAudioEnded();
+}
+}
+}, 1000);
+}
+
+// 處理音頻結束的函數
+function handleAudioEnded() {
+// 標記已處理，避免重複觸發
+audioEndedHandled = true;
+
+// 顯示繼續按鈕
+goToLovePageBtn.style.display = "inline-block";
+
+// 停止旋轉唱片
+vinyl.classList.remove("spin");
+
+// 更新播放按鈕文字
+playBtn.textContent = "🎵 《Be My Ocean》";
+isPlaying = false;
+}
+
+// 音樂播放按鈕事件
+playBtn.addEventListener("click", () => {
+if (isPlaying) {
+audio.pause();
+vinyl.classList.remove("spin");
+playBtn.textContent = "🎵 《Be My Ocean》";
+} else {
+audio.play().catch(err => {
+// 處理播放失敗的情況（特別是在移動設備上）
+console.error("播放失敗:", err);
+// 顯示繼續按鈕，讓用戶可以手動進入下一頁
+goToLovePageBtn.style.display = "inline-block";
+});
+vinyl.classList.add("spin");
+playBtn.textContent = "⏸️ 我愛你寶寶 ❤️ ";
+songStarted = true;
+audioEndedHandled = false; // 重置結束標記
+}
+isPlaying = !isPlaying;
+});
+
+// 歌詞更新事件
+audio.addEventListener("timeupdate", () => {
+const currentTime = audio.currentTime;
+const currentLyric = lyricsData
+.slice()
+.reverse()
+.find((line) => currentTime >= line.time);
+if (currentLyric) {
+lyricsEl.innerHTML = currentLyric.text;
+}
+});
+
+// 音樂結束事件
+audio.addEventListener("ended", handleAudioEnded);
+
+// 音頻錯誤處理
+audio.addEventListener("error", () => {
+console.error("音頻加載錯誤");
+// 顯示繼續按鈕，讓用戶可以手動進入下一頁
+goToLovePageBtn.style.display = "inline-block";
+});
+
+// 事件監聽器設置
+nextBtn.addEventListener("click", nextPage);
+prevBtn.addEventListener("click", prevPage);
+goToLovePageBtn.addEventListener("click", goToLovePage);
+
+// 初始化頁面設置
+showPage(currentPage);
 });
 </script>
 </body>
